@@ -5,7 +5,6 @@ let faMoon = document.querySelector(".fa-moon-o");
 let faSun = document.querySelector(".fa-sun-o");
 let pays = document.querySelector(".pays");
 let span = document.querySelector("span");
-console.log(pays);
 
 let body = document.querySelector("body");
 function modeDarkLight() {
@@ -14,6 +13,7 @@ function modeDarkLight() {
   body.classList.toggle("dark");
   span.classList.toggle("test");
   darkOrLight.classList.toggle("test");
+  pays.classList.toggle("test");
 }
 
 darkOrLight.addEventListener("click", modeDarkLight);
@@ -38,14 +38,14 @@ async function allCountry() {
   let data = await response.json();
   console.log(data);
   for (i = 0; i < data.length; i++) {
-    pays.innerHTML += `<div class="shadow rounded bg-white" style="width: 18rem;>
-    <div class="card-body text-dark">
-    <img src="${data[i].flags.png}" class="img-fluid" style="heigth: 300px;>
-        <h4 class="name">${data[i].name.common}</h4>
-        <h6 class="population">
-         Population: ${data[i].population}</h6>
-        <h6 class="region">Region: ${data[i].continents}</h6>
-        <h6 class="capital">Capital: ${data[i].capital}</h6>
+    pays.innerHTML += `<div class="shadow rounded" style="width: 18rem;height: 295px;>
+    <div class="card-body p-2">
+      <img src="${data[i].flags.png}"   style="height: 144px;object-fit: cover;">
+      <h4 class="name ms-2 mt-2">${data[i].name.common}</h4>
+      <h6 class="population mt-2  ms-2">
+        Population: ${data[i].population}</h6>
+      <h6 class="region mt-2  ms-2">Region: ${data[i].continents}</h6>
+      <h6 class="capital mt-2  ms-2">Capital: ${data[i].capital}</h6>
     </div>
 </div>`;
   }
